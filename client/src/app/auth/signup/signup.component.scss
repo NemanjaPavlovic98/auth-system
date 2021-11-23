@@ -1,0 +1,88 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ::ng-deep .mat-form-field-prefix{
+    mat-icon{
+      margin-right: 5px;
+    }
+  }
+}
+
+mat-card {
+  width: 450px;
+  max-width: 90%;
+  margin: 50px auto 0px;
+  text-align: center;
+  position: relative;
+  padding-top: 70px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+img.logo {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid rgb(187, 183, 183);
+  border-radius: 100%;
+
+  &:hover {
+    border-color: gray;
+  }
+}
+
+h1 {
+  margin: 0px;
+}
+
+.button {
+  display: block;
+  width: 100px;
+  margin: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+a {
+  margin: 20px 0;
+  display: inline-block;
+  opacity: 0.4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+  width: 1px;
+}
+
+.pick-image-btn {
+  margin-bottom: 1.2rem;
+}
+
+.danger{
+  display: block;
+  width: 250px;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
+  p{
+    margin: 5px 0px;
+    padding: 5px;
+    background-color: rgba(184, 64, 43, 0.767);
+  }
+}

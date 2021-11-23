@@ -1,0 +1,15 @@
+<div class="container clearfix">
+  <div class="info">
+    <div *ngIf="user.imageUrl" class="image">
+        <img [src]="user.imageUrl" alt="">
+    </div>
+    <div class="user">
+      <p class="name">{{user.name}}</p>
+      <p class="email">{{user.email}}</p>
+      <button [routerLink]="['/user/edit/', user.id]" routerLinkActive="router-link-active"  class="edit-user" [ngStyle]="{float: user.imageUrl ? 'right' : 'left'}" color="primary" mat-raised-button>Edit user</button>
+    </div>
+  </div>
+  <hr>
+  <button style="float: right" color="warn" class="button" mat-raised-button (click)="onLogout()">Logout</button>
+  
+</div>

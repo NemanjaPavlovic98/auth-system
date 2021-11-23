@@ -1,0 +1,32 @@
+<mat-toolbar class="header" color="primary">
+  <div class="logo" routerLink="/">MyNotes<mat-icon>description</mat-icon></div>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="isAuthenticated">
+      <a
+        mat-button
+        class="button"
+        routerLink="/create"
+        routerLinkActive="active"
+        >Create New</a
+      >
+    </li>
+    <li *ngIf="!isAuthenticated">
+      <a mat-button class="button" routerLink="/login" routerLinkActive="active"
+        >Login</a
+      >
+    </li>
+    <div *ngIf="isAuthenticated" (click)="onToggleDrowdown()" class="logged-in">
+      <div class="user" [matMenuTriggerFor]="menu">
+        <img *ngIf="user.imageUrl" [src]="user.imageUrl" alt="user.username" />
+        <p *ngIf="!user.imageUrl">{{ user.name | slice: 0:2 | uppercase }}</p>
+      </div>
+
+      <!-- <div *ngIf="toggleDropdown"> -->
+      <mat-menu #menu="matMenu">
+        <app-user-panel [user]="user"></app-user-panel>
+      </mat-menu>
+      <!-- </div> -->
+    </div>
+  </ul>
+</mat-toolbar>

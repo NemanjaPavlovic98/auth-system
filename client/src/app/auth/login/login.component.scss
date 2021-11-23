@@ -1,0 +1,75 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  ::ng-deep .mat-form-field-prefix {
+    mat-icon {
+      margin-right: 5px;
+    }
+  }
+}
+mat-card {
+  width: 400px;
+  max-width: 90%;
+  margin: 0px auto;
+  margin-top: 20px;
+  padding-top: 70px;
+  text-align: center;
+  position: relative;
+}
+
+img.logo {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+}
+h1 {
+  margin: 0px 0px 20px;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.button {
+  display: block;
+  width: 100px;
+  margin: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+a {
+  margin: 20px 0;
+  display: inline-block;
+  opacity: 0.4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.danger {
+  display: block;
+  width: 250px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(184, 64, 43, 0.767);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

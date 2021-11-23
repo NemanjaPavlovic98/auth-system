@@ -1,0 +1,45 @@
+<mat-card>
+  <img
+    src="https://cutewallpaper.org/21/wallpaper-1920-by-1080/1080-Wallpapers-Top-Free-1080-Backgrounds-WallpaperAccess.png"
+    alt="logo"
+    class="logo"
+  />
+  <h1 class="mat-body-1">Login</h1>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onLogin()" *ngIf="!isLoading">
+    <!-- email -->
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput name="title" type="email" formControlName="email" />
+      <mat-error *ngIf="form.get('email').invalid"
+        >Enter an valid email adress!</mat-error
+      >
+    </mat-form-field>
+
+    <!-- password -->
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input matInput name="title" type="password" formControlName="password" />
+      <mat-error *ngIf="form.get('password').invalid"
+        >Enter correct password!</mat-error
+      >
+    </mat-form-field>
+    <!-- button -->
+    <button
+      *ngIf="!isLoading"
+      [disabled]="form.invalid"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="button"
+    >
+      Login
+    </button>
+    <a [routerLink]="['/signup']">Need an account?</a>
+  </form>
+  <div class="danger" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+</mat-card>

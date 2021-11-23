@@ -1,0 +1,107 @@
+<mat-card>
+  <img
+    (click)="filePicker.nativeElement.click()"
+    [src]="imagePreview"
+    alt="user"
+    class="logo"
+  />
+  <mat-icon class="remove-image" (click)="onImageRemove()">delete</mat-icon>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <h1 class="mat-body-1">Update account</h1>
+  <form [formGroup]="form" (submit)="onUpdate()" *ngIf="!isLoading">
+    <!-- image -->
+    <div class="picker-btn">
+      <input #filePicker (change)="onImageChange($event)" type="file" />
+    </div>
+    <mat-error *ngIf="form.get('image').invalid"
+      >Select right image format!</mat-error
+    >
+    <!-- name -->
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <mat-icon matPrefix>face</mat-icon>
+      <input matInput name="name" type="text" formControlName="name" />
+    </mat-form-field>
+    <!-- username -->
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput name="username" type="text" formControlName="username" />
+      <mat-error *ngIf="form.get('username').invalid"></mat-error>
+    </mat-form-field>
+    <!-- email -->
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <mat-icon matPrefix>email</mat-icon>
+      <input matInput name="title" type="email" formControlName="email" />
+      <mat-error *ngIf="form.get('email').invalid"
+        >Enter an valid email adress!</mat-error
+      >
+    </mat-form-field>
+    <!-- password -->
+    <div class="password" *ngIf="!changePassword">
+      <button
+        mat-raised-button
+        type="button"
+        color="warn"
+        (click)="onChangePassword()"
+      >
+        Change password?
+      </button>
+    </div>
+    <div formArrayName="password" class="password">
+      <div *ngFor="let passw of passwords(); let i = index" class="change-password">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input
+            matInput
+            [type]="showPassword ? 'text' : 'password'"
+            type="password"
+            [formControlName]="i"
+          />
+          <button
+            mat-icon-button
+            type="button"
+            matSuffix
+            class="show-password-button"
+            (click)="toggleShowPassword()"
+            color="primary"
+          >
+            <mat-icon>{{
+              showPassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.get('password').invalid"
+            >Enter correct password!</mat-error
+          >
+        </mat-form-field>
+        <button
+          mat-raised-button
+          type="button"
+          color="warn"
+          (click)="onDiscardChangePassword(i)"
+        >
+          Discard
+        </button>
+      </div>
+    </div>
+
+    <!-- button -->
+    <button
+      *ngIf="!isLoading"
+      [disabled]="!(form.touched && form.valid && form.dirty)"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="button update-btn"
+    >
+      Update
+    </button>
+  </form>
+  <div class="danger" *ngIf="error.length > 0">
+    <ng-container *ngFor="let err of error">
+      <p>{{ err }}</p>
+    </ng-container>
+  </div>
+</mat-card>

@@ -1,0 +1,25 @@
+:root {
+  --header-high: 60px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f2f2f2;
+}
+
+.header {
+  height: var(--header-high);
+}
+.main-router {
+  height: calc(100vh - var(--header-high));
+}
+
+.mat-menu-panel {
+  max-width: 320px !important;
+  width: 320px !important;
+}

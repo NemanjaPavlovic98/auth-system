@@ -1,0 +1,61 @@
+.clearfix {
+    &:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+
+.container {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  box-sizing: border-box;
+  
+
+  .info {
+    display: flex;
+    flex-direction: row;
+
+    img {
+      height: 120px;
+      width: 100px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .edit-user {
+      box-sizing: border-box;
+    //   float: right;
+    }
+  }
+
+  .user {
+    p {
+      color: black;
+      margin: 0px;
+      font-weight: normal;
+    }
+
+    .name {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .email {
+      font-size: 15px;
+      margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 180px;
+    }
+  }
+
+  .logout {
+    float: right;
+    text-align: right;
+  }
+}
